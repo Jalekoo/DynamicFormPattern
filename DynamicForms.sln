@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicForms.Tests", "DynamicForms.Tests\DynamicForms.Tests.csproj", "{734F5CE9-41CE-4474-B27D-C33CF42829A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicForms.Engine", "DynamicForms.Engine\DynamicForms.Engine.csproj", "{ED885FDC-BF30-4425-9DA2-E9CF5678B762}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{734F5CE9-41CE-4474-B27D-C33CF42829A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734F5CE9-41CE-4474-B27D-C33CF42829A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734F5CE9-41CE-4474-B27D-C33CF42829A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734F5CE9-41CE-4474-B27D-C33CF42829A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED885FDC-BF30-4425-9DA2-E9CF5678B762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED885FDC-BF30-4425-9DA2-E9CF5678B762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED885FDC-BF30-4425-9DA2-E9CF5678B762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED885FDC-BF30-4425-9DA2-E9CF5678B762}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
