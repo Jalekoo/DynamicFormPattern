@@ -20,6 +20,6 @@ namespace DynamicForms.Engine
 
         public int Index { get; set; }
 
-        public virtual Type AnswerType { get; }
+        public abstract Type AnswerType { get; }
     }
 }

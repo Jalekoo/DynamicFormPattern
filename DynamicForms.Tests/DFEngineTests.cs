@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DynamicForms.Components.Binary;
 using DynamicForms.Engine;
 using NUnit.Framework;
 
@@ -36,7 +37,7 @@ namespace DynamicForms.Tests
             Form f = CreateANewForm();
 
             // Act
-            QBinary q = f.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est ma première question ?", true );
+            QBinary q = (QBinary)f.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est ma première question ?", true );
 
             // Assert
             Assert.IsNotNull( q );
@@ -68,7 +69,7 @@ namespace DynamicForms.Tests
         public void AddAnswerToAnAnswerSheet()
         {
             AnswerSheet s = CreateAnAnswerSheet();
-            QBinary q = s.Form.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est bon ?", true );
+            QBinary q = (QBinary)s.Form.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est bon ?", true );
             ABase a = s.FindOrCreateAnswerFor( q );
             Assert.IsNotNull( a );
             Assert.IsInstanceOf( typeof( ABinary ), a );
