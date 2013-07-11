@@ -14,6 +14,7 @@ namespace DynamicForms.Components.Binary
         {
 
         }
+
         public override Type AnswerType { get { return typeof( ABinary ); } }
     }
 }

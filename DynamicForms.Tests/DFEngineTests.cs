@@ -12,32 +12,38 @@ namespace DynamicForms.Tests
     [TestFixture]
     public class DFEngineTests
     {
-        private void Setup()
+        private Form SetupForm()
         {
+            return new Form( "A" );
+        }
+
+        private AnswerSheet SetupSheet()
+        {
+            Form f = SetupForm();
+            AnswerSheet a = f.FindOrCreateAnswerSheet( "User1" );
+            return a;
         }
 
         [Test]
-        public Form CreateANewForm()
+        public void CreateANewForm()
         {
             // Act
-            Form f = new Form( "A" );
+            Form f1 = SetupForm();
             Form f2 = new Form( "B" );
 
             // Assert
-            Assert.IsNotNull( f );
-            Assert.AreNotEqual( f, f2 );
-
-            return f;
+            Assert.IsNotNull( f1 );
+            Assert.AreNotSame( f1, f2 );
         }
 
         [Test]
         public void AddQuestionToAForm()
         {
             // Arrange
-            Form f = CreateANewForm();
+            Form f = SetupForm();
 
             // Act
-            QBinary q = (QBinary)f.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est ma première question ?", true );
+            QBinary q = (QBinary)f.AddANewQuestion<QBinary>( "Est-ce que c'est ma première question ?", true );
 
             // Assert
             Assert.IsNotNull( q );
@@ -45,10 +51,10 @@ namespace DynamicForms.Tests
         }
 
         [Test]
-        public AnswerSheet CreateAnAnswerSheet()
+        public void CreateAnAnswerSheet()
         {
             // Arrange
-            Form f = CreateANewForm();
+            Form f = SetupForm();
 
             // Act
             AnswerSheet a1 = f.FindOrCreateAnswerSheet( "User1" );
@@ -56,20 +62,18 @@ namespace DynamicForms.Tests
             AnswerSheet a3 = f.FindOrCreateAnswerSheet( "User3" );
 
             // Assert
-            Assert.AreEqual( a1, a2 );
+            Assert.AreSame( a1, a2 );
             Assert.AreNotEqual( a1, a3 );
-            Assert.AreEqual( a1.Form, f );
-            Assert.AreEqual( 1, f.Sheets.Count() );
+            Assert.AreSame( a1.Form, f );
+            Assert.AreEqual( 2, f.Sheets.Count() );
             Assert.That( f.Sheets.Any( a => a == a1 ) );
-
-            return a1;
         }
 
         [Test]
         public void AddAnswerToAnAnswerSheet()
         {
-            AnswerSheet s = CreateAnAnswerSheet();
-            QBinary q = (QBinary)s.Form.AddANewQuestion( typeof( QBinary ), "Est-ce que c'est bon ?", true );
+            AnswerSheet s = SetupSheet();
+            QBinary q = s.Form.AddANewQuestion<QBinary>( "Est-ce que c'est bon ?", true );
             ABase a = s.FindOrCreateAnswerFor( q );
             Assert.IsNotNull( a );
             Assert.IsInstanceOf( typeof( ABinary ), a );

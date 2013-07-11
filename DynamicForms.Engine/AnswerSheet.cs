@@ -14,6 +14,8 @@ namespace DynamicForms.Engine
         {
             UniqueName = name;
             _form = form;
+
+            Answers = new List<ABase>();
         }
 
         public string UniqueName { get; set; }

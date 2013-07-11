@@ -11,6 +11,9 @@ namespace DynamicForms.Engine
         public Form( string name )
         {
             Name = name;
+
+            Questions = new List<QBase>();
+            Sheets = new List<AnswerSheet>();
         }
 
         public string Name { get; set; }
@@ -19,18 +22,30 @@ namespace DynamicForms.Engine
 
         public IList<AnswerSheet> Sheets { get; set; }
 
-        public QBase AddANewQuestion( Type questionType, string title, bool isRequired )
+        public T AddANewQuestion<T>( string title, bool isRequired ) where T : QBase
         {
-            QBase q = (QBase)Activator.CreateInstance( questionType, title, isRequired );
+            T q = (T)Activator.CreateInstance( typeof( T ), title, isRequired );
             Questions.Add( q );
             return q;
         }
 
         public AnswerSheet FindOrCreateAnswerSheet( string name )
         {
+            AnswerSheet a = FindAnswerSheet( name );
+            if( a == null ) a = CreateAnswerSheet( name );
+            return a;
+        }
+
+        private AnswerSheet CreateAnswerSheet( string name )
+        {
             AnswerSheet a = new AnswerSheet( name, this );
             Sheets.Add( a );
             return a;
+        }
+
+        private AnswerSheet FindAnswerSheet( string name )
+        {
+            return Sheets.SingleOrDefault( a => a.UniqueName == name );
         }
     }
 }
