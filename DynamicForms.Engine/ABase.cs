@@ -22,6 +22,7 @@ namespace DynamicForms.Engine
 
         public QBase Question { get { return _question; } }
 
+        // Début d'implémentation du pattern du valiadtor, je n'ai pas encore tout compris alors je vais continuer de potasser !
         public void Accept( IValidator validator )
         {
             validator.Valid( this );

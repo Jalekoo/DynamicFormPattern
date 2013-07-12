@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="DFEngineTests.cs" />
     <Compile Include="DFQFreeText.cs" />
-    <Compile Include="DFQMultipleChoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    // Après réflexion, ce n'est pas la bonne implémentation de ce plugin
     [Serializable]
     public class QMultipleChoice : QBase
     {
