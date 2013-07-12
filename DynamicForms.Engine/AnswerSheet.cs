@@ -26,7 +26,7 @@ namespace DynamicForms.Engine
 
         public ABase FindOrCreateAnswerFor( QBase question )
         {
-            ABase a = (ABase)Activator.CreateInstance( question.AnswerType, question );
+            ABase a = question.CreateAnswer( _form );
             Answers.Add( a );
             return a;
         }

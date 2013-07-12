@@ -8,26 +8,21 @@ namespace DynamicForms.Engine
 {
     public class Form
     {
+        readonly QRoot _root;
+
         public Form( string name )
         {
             Name = name;
 
-            Questions = new List<QBase>();
+            _root = new QRoot( this, "Root", true, null );
             Sheets = new List<AnswerSheet>();
         }
 
         public string Name { get; set; }
 
-        public IList<QBase> Questions { get; set; }
-
         public IList<AnswerSheet> Sheets { get; set; }
 
-        public T AddANewQuestion<T>( string title, bool isRequired ) where T : QBase
-        {
-            T q = (T)Activator.CreateInstance( typeof( T ), title, isRequired );
-            Questions.Add( q );
-            return q;
-        }
+        public QRoot Questions { get { return _root; } }
 
         public AnswerSheet FindOrCreateAnswerSheet( string name )
         {

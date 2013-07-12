@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Engine;
 
-namespace DynamicForms.Components.Binary
+namespace DynamicForms.Components.Composite
 {
-    public class QBinary : QBase
+    public class QComposite : QBase
     {
-        public QBinary( Form form, string title, bool isRequired, QBase parent )
+        public QComposite( Form form, string title, bool isRequired, QBase parent )
             : base( form, title, isRequired, parent )
         {
         }
 
         public override ABase CreateAnswer( Form form )
         {
-            return (ABase)Activator.CreateInstance( typeof( ABinary ), this );
+            throw new NotSupportedException();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Components.Binary;
+using DynamicForms.Components.FreeText;
 using DynamicForms.Engine;
 using NUnit.Framework;
 
@@ -43,11 +44,30 @@ namespace DynamicForms.Tests
             Form f = SetupForm();
 
             // Act
-            QBinary q = (QBinary)f.AddANewQuestion<QBinary>( "Est-ce que c'est ma première question ?", true );
+            QBinary q1 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est ma première question ?", true );
+            QBinary q2 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est une seconde question ?", true );
+            QBinary q3 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est une troisième question ?", true );
+            QFreeText q4 = (QFreeText)f.Questions.AddANewQuestion<QFreeText>( "Est-ce que c'est une quatrième question ?", true );
+            q2.Parent = q1;
+            q3.Index = 0;
+
+            q4.AllowEmptyAnswer = false;
 
             // Assert
-            Assert.IsNotNull( q );
-            Assert.AreEqual( 1, f.Questions.Count() );
+            Assert.IsNotNull( q1 );
+            Assert.AreSame( f, q1.Form );
+            Assert.AreEqual( 1, q1.Index );
+            Assert.AreEqual( 2, q2.Index );
+            Assert.AreEqual( 0, q3.Index );
+            Assert.AreEqual( 3, q4.Index );
+            Assert.IsTrue( f.Questions.Contains( q1 ) );
+            Assert.IsTrue( f.Questions.Contains( q2 ) );
+
+            q3.Index = 2;
+            Assert.AreEqual( 0, q1.Index );
+            Assert.AreEqual( 1, q2.Index );
+            Assert.AreEqual( 2, q3.Index );
+            Assert.AreEqual( 3, q4.Index );
         }
 
         [Test]
@@ -73,7 +93,7 @@ namespace DynamicForms.Tests
         public void AddAnswerToAnAnswerSheet()
         {
             AnswerSheet s = SetupSheet();
-            QBinary q = s.Form.AddANewQuestion<QBinary>( "Est-ce que c'est bon ?", true );
+            QBinary q = s.Form.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est bon ?", true );
             ABase a = s.FindOrCreateAnswerFor( q );
             Assert.IsNotNull( a );
             Assert.IsInstanceOf( typeof( ABinary ), a );
