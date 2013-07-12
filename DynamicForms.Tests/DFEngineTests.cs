@@ -14,7 +14,7 @@ namespace DynamicForms.Tests
     {
         private Form SetupForm()
         {
-            return new Form( "A" );
+            return FormEngine.CreateForm( "A" );
         }
 
         private AnswerSheet SetupSheet()
@@ -29,7 +29,7 @@ namespace DynamicForms.Tests
         {
             // Act
             Form f1 = SetupForm();
-            Form f2 = new Form( "B" );
+            Form f2 = FormEngine.CreateForm( "B" );
 
             // Assert
             Assert.IsNotNull( f1 );

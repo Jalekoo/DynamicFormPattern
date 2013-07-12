@@ -10,7 +10,7 @@ namespace DynamicForms.Engine
     {
         readonly QRoot _root;
 
-        public Form( string name )
+        internal Form( string name )
         {
             Name = name;
 
@@ -43,7 +43,7 @@ namespace DynamicForms.Engine
             return Sheets.SingleOrDefault( a => a.UniqueName == name );
         }
 
-        public AnswerSheet CreateAnswerSheetFor(string name)
+        public AnswerSheet CreateAnswerSheetFor( string name )
         {
             if( FindAnswerSheet( name ) != null ) throw new ArgumentException( "This name already exists !", "name" );
             return CreateAnswerSheetInternalFor( name );

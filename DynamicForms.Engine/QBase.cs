@@ -79,8 +79,11 @@ namespace DynamicForms.Engine
             question.SetParent( newParent );
             _children.Remove( question );
             this.CacheIndexes();
-            newParent._children.Add( question );
-            newParent.CacheIndexes();
+            if( newParent != null )
+            {
+                newParent._children.Add( question );
+                newParent.CacheIndexes();
+            }
         }
 
         private void CacheIndexes()

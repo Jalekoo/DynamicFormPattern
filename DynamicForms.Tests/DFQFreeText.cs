@@ -15,7 +15,7 @@ namespace DynamicForms.Tests
         [Test]
         public void CreateAFormWithQFreeText()
         {
-            Form f = new Form( "Test" );
+            Form f = FormEngine.CreateForm( "Test" );
             QComposite n1 = f.Questions.AddANewQuestion<QComposite>( "Informations sur le programme", false );
             QFreeText q1 = n1.AddANewQuestion<QFreeText>( "Qu'aimez-vous dans ce programme ?", true );
             QFreeText q2 = (QFreeText)n1.AddANewQuestion( "DynamicForms.Components.QFreeText, DynamicForms.Components", "Qu'est-ce qui marche particulièrement bien ?", false );
@@ -50,6 +50,7 @@ namespace DynamicForms.Tests
             Assert.AreSame( q4.Parent, n2 );
             Assert.AreSame( toto.Answers[q1], a1 );
             Assert.AreSame( toto.Answers[q5], a6 );
+            Assert.Throws<NotSupportedException>( delegate { toto.CreateAnswerFor( n1 ); } );
         }
     }
 }
