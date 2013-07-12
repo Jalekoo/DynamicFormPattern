@@ -20,7 +20,7 @@ namespace DynamicForms.Components
 
         public override bool IsValid
         {
-            get { return AllowEmptyAnswer ? true : String.IsNullOrWhiteSpace( FreeTextAnswer ); }
+            get { return AllowEmptyAnswer ? true : !String.IsNullOrWhiteSpace( FreeTextAnswer ); }
         }
     }
 }

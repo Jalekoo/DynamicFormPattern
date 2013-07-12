@@ -36,18 +36,20 @@ namespace DynamicForms.Tests
             a3.FreeTextAnswer = "Une réponse de test 3";
             AFreeText a4 =(AFreeText)toto.CreateAnswerFor( q4 );
             a4.AllowEmptyAnswer = true;
-            a4.FreeTextAnswer = "Une réponse de test 4";
+            a4.FreeTextAnswer = "";
             AFreeText a5 =(AFreeText)toto.CreateAnswerFor( q5 );
             a5.AllowEmptyAnswer = false;
             a5.FreeTextAnswer = "Une réponse de test 5";
             AFreeText a6 =(AFreeText)toto.CreateAnswerFor( q5 );
             a6.AllowEmptyAnswer = false;
-            a6.FreeTextAnswer = "Une réponse de test 6!";
+            a6.FreeTextAnswer = " ";
 
             Assert.AreEqual( 3, n1.Children.Count );
             Assert.AreEqual( 2, n2.Children.Count );
             Assert.AreSame( q2.Parent, n1 );
             Assert.AreSame( q4.Parent, n2 );
+            Assert.IsTrue( a4.IsValid );
+            Assert.IsFalse( a6.IsValid );
             Assert.AreSame( toto.Answers[q1], a1 );
             Assert.AreSame( toto.Answers[q5], a6 );
             Assert.Throws<NotSupportedException>( delegate { toto.CreateAnswerFor( n1 ); } );
