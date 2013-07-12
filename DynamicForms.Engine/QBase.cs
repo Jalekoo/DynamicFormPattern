@@ -46,7 +46,7 @@ namespace DynamicForms.Engine
             }
             set
             {
-                _parent = value;
+                _parent.OnChildParentChange( this, value );
             }
         }
 
@@ -61,11 +61,29 @@ namespace DynamicForms.Engine
             _index = index;
         }
 
+        private void SetParent( QBase parent )
+        {
+            _parent = parent;
+        }
+
         private void OnChildIndexChange( QBase question, int oldIndex, int newIndex )
         {
             _children.RemoveAt( oldIndex );
             _children.Insert( newIndex, question );
 
+            this.CacheIndexes();
+        }
+
+        private void OnChildParentChange( QBase question, QBase newParent )
+        {
+            _children.Remove( question );
+            this.CacheIndexes();
+            newParent._children.Add( question );
+            newParent.CacheIndexes();
+        }
+
+        private void CacheIndexes()
+        {
             for( int i = 0; i < _children.Count; i++ )
                 _children[i].SetIndex( i );
         }

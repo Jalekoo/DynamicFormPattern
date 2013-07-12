@@ -57,17 +57,17 @@ namespace DynamicForms.Tests
             Assert.IsNotNull( q1 );
             Assert.AreSame( f, q1.Form );
             Assert.AreEqual( 1, q1.Index );
-            Assert.AreEqual( 2, q2.Index );
+            Assert.AreEqual( 0, q2.Index );
             Assert.AreEqual( 0, q3.Index );
-            Assert.AreEqual( 3, q4.Index );
+            Assert.AreEqual( 2, q4.Index );
             Assert.IsTrue( f.Questions.Contains( q1 ) );
             Assert.IsTrue( f.Questions.Contains( q2 ) );
 
             q3.Index = 2;
             Assert.AreEqual( 0, q1.Index );
-            Assert.AreEqual( 1, q2.Index );
+            Assert.AreEqual( 0, q2.Index );
             Assert.AreEqual( 2, q3.Index );
-            Assert.AreEqual( 3, q4.Index );
+            Assert.AreEqual( 1, q4.Index );
         }
 
         [Test]
