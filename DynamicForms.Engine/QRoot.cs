@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Engine
 {
+    [Serializable]
     public class QRoot : QBase
     {
         public QRoot(Form form, string title, bool isRequired, QBase parent)

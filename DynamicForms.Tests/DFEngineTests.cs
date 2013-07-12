@@ -104,14 +104,35 @@ namespace DynamicForms.Tests
             b.Answer = true;
         }
 
+        private string SetupBinary( string path )
+        {
+            AnswerSheet s = SetupSheet();
+            QBinary q1 = s.Form.Questions.AddANewQuestion<QBinary>( "Test 1", true );
+            QBinary q2 = s.Form.Questions.AddANewQuestion<QBinary>( "Test 2", true );
+
+            ABinary a1 = (ABinary)s.CreateAnswerFor( q1 );
+            a1.Answer = true;
+            ABinary a2 = (ABinary)s.CreateAnswerFor( q2 );
+            a1.Answer = false;
+
+            return FormEngine.Save( path, s.Form );
+        }
+
         [Test]
         public void SerializeAFormToABinaryFile()
         {
+            string path = SetupBinary( @"D:\Projets\_Intech\DynamicForms\bin" );
+
+            // Assert file exists
         }
 
         [Test]
         public void DeserializeAFormFromABinaryFile()
         {
+            string path = SetupBinary( @"D:\Projets\_Intech\DynamicForms\bin" );
+            Form f = (Form)FormEngine.Load( path );
+
+            Assert.IsNotNull( f );
         }
 
         private void Teardown()

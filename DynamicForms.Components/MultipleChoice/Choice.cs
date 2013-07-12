@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class Choice
     {
         private int _index;

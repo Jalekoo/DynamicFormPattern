@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class QMultipleChoice : QBase
     {
         readonly List<Choice> _choices;

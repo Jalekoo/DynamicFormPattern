@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class ABinary : ABase
     {
         public ABinary( QBase question )

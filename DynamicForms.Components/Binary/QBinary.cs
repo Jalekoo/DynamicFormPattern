@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class QBinary : QBase
     {
         public QBinary( Form form, string title, bool isRequired, QBase parent )

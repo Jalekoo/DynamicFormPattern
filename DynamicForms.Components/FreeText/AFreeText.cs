@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class AFreeText : ABase
     {
         public AFreeText( QBase question )

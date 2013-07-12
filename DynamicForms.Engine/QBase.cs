@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynamicForms.Engine
 {
+    [Serializable]
     public abstract class QBase
     {
         private QBase _parent;

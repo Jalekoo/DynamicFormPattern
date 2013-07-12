@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynamicForms.Engine
 {
+    [Serializable]
     public class Form
     {
         readonly QRoot _root;

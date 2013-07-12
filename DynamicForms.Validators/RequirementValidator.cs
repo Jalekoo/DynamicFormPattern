@@ -8,6 +8,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Validators
 {
+    [Serializable]
     public class RequirementValidator : IValidator
     {
         public void Valid( ABase answer )

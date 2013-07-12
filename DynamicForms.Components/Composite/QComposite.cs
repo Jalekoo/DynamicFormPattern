@@ -7,6 +7,7 @@ using DynamicForms.Engine;
 
 namespace DynamicForms.Components
 {
+    [Serializable]
     public class QComposite : QBase
     {
         public QComposite( Form form, string title, bool isRequired, QBase parent )

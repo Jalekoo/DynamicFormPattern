@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynamicForms.Engine
 {
+    [Serializable]
     public abstract class ABase
     {
         readonly QBase _question;
