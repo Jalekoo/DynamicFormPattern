@@ -95,9 +95,9 @@ namespace DynamicForms.Engine
             return AddNewQuestionInternal( q );
         }
 
-        public QBase AddNewQuestion( string type, string title, bool isRequired )
+        public QBase AddANewQuestion( string type, string title, bool isRequired )
         {
-            QBase q = (QBase)Activator.CreateInstance( Type.GetType( type ) );
+            QBase q = (QBase)Activator.CreateInstance( Type.GetType( type ), Form, title, isRequired, this );
             return AddNewQuestionInternal( q );
         }
 

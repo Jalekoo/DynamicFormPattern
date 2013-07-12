@@ -45,7 +45,7 @@ namespace DynamicForms.Tests
 
             // Act
             QBinary q1 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est ma première question ?", true );
-            QBinary q2 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est une seconde question ?", true );
+            QBinary q2 = (QBinary)f.Questions.AddANewQuestion( "DynamicForms.Components.Binary.QBinary, DynamicForms.Components", "Est-ce que c'est une seconde question ?", true );
             QBinary q3 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est une troisième question ?", true );
             QFreeText q4 = (QFreeText)f.Questions.AddANewQuestion<QFreeText>( "Est-ce que c'est une quatrième question ?", true );
             q2.Parent = q1;
