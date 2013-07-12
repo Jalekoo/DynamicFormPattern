@@ -76,6 +76,7 @@ namespace DynamicForms.Engine
 
         private void OnChildParentChange( QBase question, QBase newParent )
         {
+            question.SetParent( newParent );
             _children.Remove( question );
             this.CacheIndexes();
             newParent._children.Add( question );
