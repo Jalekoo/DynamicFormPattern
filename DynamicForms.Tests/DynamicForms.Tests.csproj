@@ -75,6 +75,10 @@
       <Project>{ed885fdc-bf30-4425-9da2-e9cf5678b762}</Project>
       <Name>DynamicForms.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DynamicForms.Validators\DynamicForms.Validators.csproj">
+      <Project>{5af808b6-c5b9-4bc8-b0a3-38dbe6205566}</Project>
+      <Name>DynamicForms.Validators</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

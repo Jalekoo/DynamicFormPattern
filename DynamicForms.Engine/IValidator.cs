@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamicForms.Validators
+namespace DynamicForms.Engine
 {
     public interface IValidator
     {
+        void Valid( ABase answer );
     }
 }

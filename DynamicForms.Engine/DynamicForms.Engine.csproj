@@ -44,15 +44,10 @@
     <Compile Include="AnswerSheet.cs" />
     <Compile Include="Form.cs" />
     <Compile Include="FormEngine.cs" />
+    <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QBase.cs" />
     <Compile Include="QRoot.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DynamicForms.Validators\DynamicForms.Validators.csproj">
-      <Project>{7f179fd2-6f3f-4905-8a49-e581c609b0d0}</Project>
-      <Name>DynamicForms.Validators</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

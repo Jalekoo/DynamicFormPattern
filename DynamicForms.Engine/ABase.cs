@@ -20,5 +20,10 @@ namespace DynamicForms.Engine
         public DateTime Date { get { return _creationTime; } }
 
         public QBase Question { get { return _question; } }
+
+        public void Accept( IValidator validator )
+        {
+            validator.Valid( this );
+        }
     }
 }

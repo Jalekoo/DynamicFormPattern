@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F179FD2-6F3F-4905-8A49-E581C609B0D0}</ProjectGuid>
+    <ProjectGuid>{5AF808B6-C5B9-4BC8-B0A3-38DBE6205566}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamicForms.Validators</RootNamespace>
@@ -39,9 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequirementValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicForms.Components\DynamicForms.Components.csproj">
+      <Project>{dd781e64-148f-4d43-aa5b-62fcd875dda9}</Project>
+      <Name>DynamicForms.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicForms.Engine\DynamicForms.Engine.csproj">
+      <Project>{ed885fdc-bf30-4425-9da2-e9cf5678b762}</Project>
+      <Name>DynamicForms.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

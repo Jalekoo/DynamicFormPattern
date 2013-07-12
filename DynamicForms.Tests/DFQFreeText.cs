@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Components;
 using DynamicForms.Engine;
+using DynamicForms.Validators;
 using NUnit.Framework;
 
 namespace DynamicForms.Tests
@@ -43,6 +44,7 @@ namespace DynamicForms.Tests
             AFreeText a6 =(AFreeText)toto.CreateAnswerFor( q5 );
             a6.AllowEmptyAnswer = false;
             a6.FreeTextAnswer = " ";
+            a6.Accept( new RequirementValidator() );
 
             Assert.AreEqual( 3, n1.Children.Count );
             Assert.AreEqual( 2, n2.Children.Count );
