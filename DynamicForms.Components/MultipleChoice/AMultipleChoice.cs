@@ -28,10 +28,5 @@ namespace DynamicForms.Components
         }
 
         public bool HasMinimalAnswers { get { return _choices.Count < ((QMultipleChoice)Question).Min; } }
-
-        public override bool IsValid
-        {
-            get { return HasMinimalAnswers; }
-        }
     }
 }

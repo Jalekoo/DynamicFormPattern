@@ -48,8 +48,6 @@ namespace DynamicForms.Tests
             Assert.AreEqual( 2, n2.Children.Count );
             Assert.AreSame( q2.Parent, n1 );
             Assert.AreSame( q4.Parent, n2 );
-            Assert.IsTrue( a4.IsValid );
-            Assert.IsFalse( a6.IsValid );
             Assert.AreSame( toto.Answers[q1], a1 );
             Assert.AreSame( toto.Answers[q5], a6 );
             Assert.Throws<NotSupportedException>( delegate { toto.CreateAnswerFor( n1 ); } );

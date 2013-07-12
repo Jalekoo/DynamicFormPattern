@@ -10,7 +10,7 @@ namespace DynamicForms.Components
     public class QComposite : QBase
     {
         public QComposite( Form form, string title, bool isRequired, QBase parent )
-            : base( form, title, isRequired, parent )
+            : base( form, title, parent )
         {
         }
 

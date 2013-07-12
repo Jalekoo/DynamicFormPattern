@@ -10,7 +10,7 @@ namespace DynamicForms.Components
     public class QBinary : QBase
     {
         public QBinary( Form form, string title, bool isRequired, QBase parent )
-            : base( form, title, isRequired, parent )
+            : base( form, title, parent )
         {
         }
 

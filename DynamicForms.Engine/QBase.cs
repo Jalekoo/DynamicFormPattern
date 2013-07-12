@@ -12,17 +12,14 @@ namespace DynamicForms.Engine
         readonly private List<QBase> _children;
         private int _index;
 
-        public QBase( Form form, string title, bool isRequired, QBase parent )
+        public QBase( Form form, string title, QBase parent )
         {
             Title = title;
-            IsRequired = isRequired;
             Form = form;
             _parent = parent;
 
             _children = new List<QBase>();
         }
-
-        public bool IsRequired { get; set; }
 
         public string Title { get; set; }
 

@@ -17,10 +17,5 @@ namespace DynamicForms.Components
         public string FreeTextAnswer { get; set; }
 
         public bool AllowEmptyAnswer { get; set; }
-
-        public override bool IsValid
-        {
-            get { return AllowEmptyAnswer ? true : !String.IsNullOrWhiteSpace( FreeTextAnswer ); }
-        }
     }
 }

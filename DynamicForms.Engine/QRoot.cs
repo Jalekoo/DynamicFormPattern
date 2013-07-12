@@ -10,7 +10,7 @@ namespace DynamicForms.Engine
     public class QRoot : QBase
     {
         public QRoot(Form form, string title, bool isRequired, QBase parent)
-            : base (form, title, isRequired, parent)
+            : base (form, title, parent)
         {
         }
 

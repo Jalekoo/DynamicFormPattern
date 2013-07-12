@@ -11,7 +11,7 @@ namespace DynamicForms.Components
     {
         readonly List<Choice> _choices;
         public QMultipleChoice( Form form, string title, bool isRequired, QBase parent )
-            : base( form, title, isRequired, parent )
+            : base( form, title, parent )
         {
             _choices = new List<Choice>();
         }
