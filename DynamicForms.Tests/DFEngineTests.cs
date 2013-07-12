@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,16 @@ using NUnit.Framework;
 
 namespace DynamicForms.Tests
 {
+    static class EngineHelper
+    {
+        public static string GetPathToBinFolder()
+        {
+            string path = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            Uri u = new Uri( Path.GetDirectoryName( Path.GetDirectoryName( Path.GetDirectoryName( Path.GetDirectoryName( path ) ) ) ) );
+            return Path.Combine( u.AbsolutePath, "bin" );
+        }
+    }
+
     [TestFixture( Category = "Engine" )]
     public class DFEngineTests
     {
@@ -121,7 +132,7 @@ namespace DynamicForms.Tests
         [Test]
         public void SerializeAFormToABinaryFile()
         {
-            string path = SetupBinary( @"D:\Projets\_Intech\DynamicForms\bin" );
+            string path = SetupBinary( EngineHelper.GetPathToBinFolder() );
 
             // Assert file exists
         }
@@ -129,7 +140,7 @@ namespace DynamicForms.Tests
         [Test]
         public void DeserializeAFormFromABinaryFile()
         {
-            string path = SetupBinary( @"D:\Projets\_Intech\DynamicForms\bin" );
+            string path = SetupBinary( EngineHelper.GetPathToBinFolder() );
             Form f = (Form)FormEngine.Load( path );
 
             Assert.IsNotNull( f );
