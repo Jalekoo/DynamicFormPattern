@@ -104,6 +104,16 @@ namespace DynamicForms.Tests
             b.Answer = true;
         }
 
+        [Test]
+        public void SerializeAFormToABinaryFile()
+        {
+        }
+
+        [Test]
+        public void DeserializeAFormFromABinaryFile()
+        {
+        }
+
         private void Teardown()
         {
         }
