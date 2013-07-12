@@ -15,5 +15,10 @@ namespace DynamicForms.Components
 
         }
         public bool Answer { get; set; }
+
+        public override bool IsValid
+        {
+            get { return true; }
+        }
     }
 }

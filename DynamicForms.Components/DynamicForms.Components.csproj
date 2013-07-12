@@ -44,6 +44,9 @@
     <Compile Include="Composite\QComposite.cs" />
     <Compile Include="FreeText\AFreeText.cs" />
     <Compile Include="FreeText\QFreeText.cs" />
+    <Compile Include="MultipleChoice\AMultipleChoice.cs" />
+    <Compile Include="MultipleChoice\Choice.cs" />
+    <Compile Include="MultipleChoice\QMultipleChoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,9 +55,7 @@
       <Name>DynamicForms.Engine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dropdown\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

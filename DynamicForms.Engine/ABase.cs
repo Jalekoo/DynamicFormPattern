@@ -20,5 +20,7 @@ namespace DynamicForms.Engine
         public DateTime Date { get { return _creationTime; } }
 
         public QBase Question { get { return _question; } }
+
+        public abstract bool IsValid { get; }
     }
 }
