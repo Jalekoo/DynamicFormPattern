@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DynamicForms.Components.Binary;
-using DynamicForms.Components.FreeText;
+using DynamicForms.Components;
 using DynamicForms.Engine;
 using NUnit.Framework;
 
 namespace DynamicForms.Tests
 {
-    [TestFixture]
+    [TestFixture( Category = "Engine" )]
     public class DFEngineTests
     {
         private Form SetupForm()
@@ -21,7 +20,7 @@ namespace DynamicForms.Tests
         private AnswerSheet SetupSheet()
         {
             Form f = SetupForm();
-            AnswerSheet a = f.FindOrCreateAnswerSheet( "User1" );
+            AnswerSheet a = f.FindOrCreateAnswerSheetFor( "User1" );
             return a;
         }
 
@@ -45,7 +44,7 @@ namespace DynamicForms.Tests
 
             // Act
             QBinary q1 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est ma première question ?", true );
-            QBinary q2 = (QBinary)f.Questions.AddANewQuestion( "DynamicForms.Components.Binary.QBinary, DynamicForms.Components", "Est-ce que c'est une seconde question ?", true );
+            QBinary q2 = (QBinary)f.Questions.AddANewQuestion( "DynamicForms.Components.QBinary, DynamicForms.Components", "Est-ce que c'est une seconde question ?", true );
             QBinary q3 = (QBinary)f.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est une troisième question ?", true );
             QFreeText q4 = (QFreeText)f.Questions.AddANewQuestion<QFreeText>( "Est-ce que c'est une quatrième question ?", true );
             q2.Parent = q1;
@@ -80,9 +79,9 @@ namespace DynamicForms.Tests
             Form f = SetupForm();
 
             // Act
-            AnswerSheet a1 = f.FindOrCreateAnswerSheet( "User1" );
-            AnswerSheet a2 = f.FindOrCreateAnswerSheet( "User1" );
-            AnswerSheet a3 = f.FindOrCreateAnswerSheet( "User3" );
+            AnswerSheet a1 = f.FindOrCreateAnswerSheetFor( "User1" );
+            AnswerSheet a2 = f.FindOrCreateAnswerSheetFor( "User1" );
+            AnswerSheet a3 = f.FindOrCreateAnswerSheetFor( "User3" );
 
             // Assert
             Assert.AreSame( a1, a2 );
@@ -97,7 +96,7 @@ namespace DynamicForms.Tests
         {
             AnswerSheet s = SetupSheet();
             QBinary q = s.Form.Questions.AddANewQuestion<QBinary>( "Est-ce que c'est bon ?", true );
-            ABase a = s.FindOrCreateAnswerFor( q );
+            ABase a = s.CreateAnswerFor( q );
             Assert.IsNotNull( a );
             Assert.IsInstanceOf( typeof( ABinary ), a );
 

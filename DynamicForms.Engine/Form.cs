@@ -24,23 +24,29 @@ namespace DynamicForms.Engine
 
         public QRoot Questions { get { return _root; } }
 
-        public AnswerSheet FindOrCreateAnswerSheet( string name )
+        public AnswerSheet FindOrCreateAnswerSheetFor( string name )
         {
             AnswerSheet a = FindAnswerSheet( name );
-            if( a == null ) a = CreateAnswerSheet( name );
+            if( a == null ) a = CreateAnswerSheetInternalFor( name );
             return a;
         }
 
-        private AnswerSheet CreateAnswerSheet( string name )
+        private AnswerSheet CreateAnswerSheetInternalFor( string name )
         {
             AnswerSheet a = new AnswerSheet( name, this );
             Sheets.Add( a );
             return a;
         }
 
-        private AnswerSheet FindAnswerSheet( string name )
+        public AnswerSheet FindAnswerSheet( string name )
         {
             return Sheets.SingleOrDefault( a => a.UniqueName == name );
+        }
+
+        public AnswerSheet CreateAnswerSheetFor(string name)
+        {
+            if( FindAnswerSheet( name ) != null ) throw new ArgumentException( "This name already exists !", "name" );
+            return CreateAnswerSheetInternalFor( name );
         }
     }
 }

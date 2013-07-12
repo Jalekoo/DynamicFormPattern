@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Engine;
 
-namespace DynamicForms.Components.FreeText
+namespace DynamicForms.Components
 {
     public class QFreeText : QBase
     {

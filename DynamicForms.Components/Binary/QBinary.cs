@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Engine;
 
-namespace DynamicForms.Components.Binary
+namespace DynamicForms.Components
 {
     public class QBinary : QBase
     {

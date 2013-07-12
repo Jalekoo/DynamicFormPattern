@@ -9,26 +9,38 @@ namespace DynamicForms.Engine
     public class AnswerSheet
     {
         readonly Form _form;
+        readonly IDictionary<QBase, ABase> _answers;
 
         public AnswerSheet( string name, Form form )
         {
             UniqueName = name;
             _form = form;
 
-            Answers = new List<ABase>();
+            _answers = new Dictionary<QBase, ABase>();
         }
 
         public string UniqueName { get; set; }
 
-        public IList<ABase> Answers { get; set; }
+        public IDictionary<QBase, ABase> Answers
+        {
+            get
+            {
+                return _answers;
+            }
+        }
 
         public Form Form { get { return _form; } }
 
-        public ABase FindOrCreateAnswerFor( QBase question )
+        public ABase CreateAnswerFor( QBase question )
         {
             ABase a = question.CreateAnswer( _form );
-            Answers.Add( a );
+            Answers[question] = a;
             return a;
+        }
+
+        public ABase FindAnswerFor( QBase question )
+        {
+            return _answers[question];
         }
     }
 }

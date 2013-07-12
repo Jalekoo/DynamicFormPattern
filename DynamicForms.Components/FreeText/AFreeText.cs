@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DynamicForms.Engine;
 
-namespace DynamicForms.Components.FreeText
+namespace DynamicForms.Components
 {
     public class AFreeText : ABase
     {
@@ -14,6 +14,8 @@ namespace DynamicForms.Components.FreeText
         {
         }
 
-        public string FreeText { get; set; }
+        public string FreeTextAnswer { get; set; }
+
+        public bool AllowEmptyAnswer { get; set; }
     }
 }
