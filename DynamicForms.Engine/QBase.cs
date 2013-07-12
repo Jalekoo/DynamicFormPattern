@@ -92,6 +92,17 @@ namespace DynamicForms.Engine
         public T AddANewQuestion<T>( string title, bool isRequired ) where T : QBase
         {
             T q = (T)Activator.CreateInstance( typeof( T ), Form, title, isRequired, this );
+            return AddNewQuestionInternal( q );
+        }
+
+        public QBase AddNewQuestion( string type, string title, bool isRequired )
+        {
+            QBase q = (QBase)Activator.CreateInstance( Type.GetType( type ) );
+            return AddNewQuestionInternal( q );
+        }
+
+        private T AddNewQuestionInternal<T>( T q ) where T : QBase
+        {
             _children.Add( q );
             q.SetIndex( _children.Count - 1 );
             return q;
